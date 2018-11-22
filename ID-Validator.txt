@@ -4,36 +4,38 @@ End Function
 
 Function GetControlDigit(this)
 
-Dim d As Long
+
 Dim a As Long
 Dim b As Long
 Dim c As Long
-Dim idstring As String
-idstring = this
-Dim kaas As String
+Dim d As Long
 
-  d = -1
-  a = 0
+Dim idstring As String
+
+idstring = this
+
+a = 0
+d = -1
+  
     
   For i = 1 To 6
-  a = a + Int(Mid(idstring, (i * 2) - 1, 1))
-    
+  a = a + Int(Mid(idstring, (i * 2) - 1, 1))    
   Next
+  
   b = 0
   
   For i = 1 To 6
-    b = b * 10 + Int(Mid(idstring, (i * 2), 1))
+  b = b * 10 + Int(Mid(idstring, (i * 2), 1))
   Next
   
   b = b * 2
   c = 0
   
   Dim t As Integer
-  
-  
+    
   While b > 0
   t = XLMod(b, 10)
-  c = c + XLMod(b, 10)
+  c = c + t
   b = b - t
   b = b / 10
   Wend
